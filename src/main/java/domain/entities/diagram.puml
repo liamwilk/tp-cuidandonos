@@ -1,0 +1,75 @@
+@startuml
+
+Persona ..> Sexo
+Viaje *-- Persona
+Viaje *-- Ubicacion
+Viaje o-- TipoDeReaccion
+Viaje -> CalculadorDemora
+
+class Persona{
+    -nombre: String
+    -apellido: String
+    -edad: Integer
+    -sexo: Sexo
+
+    +comenzarTrayecto(): Void
+    +comenzarCuidado(): Void
+    +puedeCuidarEnEsteMomento(): Boolean
+    +deshabilitarNotificaciones() : Void
+}
+
+Enum Sexo{
+    FEMENINO,
+    MASCULINO
+}
+
+class Viaje{
+    -transeunte: Persona
+    -origen: Ubicacion
+    -paradas: ArrayList<Ubicacion>
+    -destino: Ubicacion
+    -tiempoDetenido: Float
+    -cuidadores: HashSet<Persona>
+    -calculadorDemora: CalculadorDemora
+    -tipoDeReaccion: TipoDeReaccion
+
+    +comenzarViaje(): Void
+    +reaccionarAIncidente(): Void
+    +esperar(Float tiempoEstimado): Void
+    +deshabilitarNotificaciones(Persona unTranseunte) : Void
+    +calcularDistancia(Ubicacion origen, Ubicacion destino): Float
+}
+
+class CalculadorDemora{
+    +calcularDemoraEntre2Ubicaciones(Ubicacion origen, Ubicacion destino): Float
+
+    +calculadorDemora(Ubicacion parada1, Ubicacion ... paradaN): Float
+}
+
+class Ubicacion{
+    -latitud: Double
+    -longitud: Double
+    -direccion: String
+}
+
+interface TipoDeReaccion{
+    +reaccionarAIncidente(Transeunte: unTranseunte): Void
+}
+
+class esperarNMinutos implements TipoDeReaccion{
+    +reaccionarAIncidente(Transeunte: unTranseunte): Void
+}
+
+class informarACuidadores implements TipoDeReaccion{
+    +reaccionarAIncidente(Transeunte: unTranseunte): Void
+}
+
+class llamarALaPolicia implements TipoDeReaccion{
+    +reaccionarAIncidente(Transeunte: unTranseunte): Void
+}
+
+class llamarAUsuario implements TipoDeReaccion{
+    +reaccionarAIncidente(Transeunte: unTranseunte): Void
+}
+
+@enduml
