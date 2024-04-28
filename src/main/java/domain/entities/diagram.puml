@@ -1,8 +1,8 @@
 @startuml
 
 Persona ..> Sexo
-Viaje *-- Persona
-Viaje *-- Ubicacion
+Viaje *-- "*" Persona
+Viaje *-- "*" Ubicacion
 Viaje o-- TipoDeReaccion
 Viaje -> CalculadorDemora
 
