@@ -41,9 +41,13 @@ class Viaje{
 }
 
 class CalculadorDemora{
-    +calcularDemoraEntre2Ubicaciones(Ubicacion origen, Ubicacion destino): Float
+    -tiempoParaTransladarseSobreUnidadDeDistancia: Float
 
-    +calculadorDemora(Ubicacion parada1, Ubicacion ... paradaN): Float
+    +calcularDemora(Viaje unViaje, Ubicacion origen, Ubicacion ... parada): Float
+
+    +calcularDemoraEntre2Ubicaciones(Viaje unViaje, Ubicacion origen, Ubicacion destino): Float
+
+    +calcularDistancia(Viaje unViaje, Ubicacion origen, Ubicacion destino): Float
 }
 
 class Ubicacion{
