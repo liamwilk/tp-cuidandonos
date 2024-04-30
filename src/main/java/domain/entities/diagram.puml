@@ -62,19 +62,19 @@ interface TipoDeReaccion{
     +reaccionarAIncidente(Transeunte: unTranseunte): Void
 }
 
-class esperarNMinutos implements TipoDeReaccion{
+class EsperarNMinutos implements TipoDeReaccion{
     +reaccionarAIncidente(Transeunte: unTranseunte): Void
 }
 
-class informarACuidadores implements TipoDeReaccion{
+class InformarACuidadores implements TipoDeReaccion{
     +reaccionarAIncidente(Transeunte: unTranseunte): Void
 }
 
-class llamarALaPolicia implements TipoDeReaccion{
+class LlamarALaPolicia implements TipoDeReaccion{
     +reaccionarAIncidente(Transeunte: unTranseunte): Void
 }
 
-class llamarAUsuario implements TipoDeReaccion{
+class LlamarAUsuario implements TipoDeReaccion{
     +reaccionarAIncidente(Transeunte: unTranseunte): Void
 }
 
