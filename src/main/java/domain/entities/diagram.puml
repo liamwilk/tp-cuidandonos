@@ -1,10 +1,12 @@
 @startuml
 
-Persona ..> Sexo
+Persona *-- Sexo
 Viaje *-- "*" Persona
 Viaje *-- "*" Ubicacion
 Viaje o-- TipoDeReaccion
 Viaje -> CalculadorDemora
+CalculadorDemora ..> Ubicacion
+CalculadorDemora ..> Viaje
 
 class Persona{
     -nombre: String
@@ -41,7 +43,7 @@ class Viaje{
 }
 
 class CalculadorDemora{
-    -tiempoParaTransladarseSobreUnidadDeDistancia: Float
+    -tiempoParaTransladarseSobreMetro: Float
 
     +calcularDemora(Viaje unViaje, Ubicacion origen, Ubicacion ... parada): Float
 
